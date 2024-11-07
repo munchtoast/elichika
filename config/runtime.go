@@ -42,7 +42,7 @@ func defaultConfigs() *RuntimeConfig {
 		EventAutoSchedulerPeriod: new(string),
 	}
 	*configs.ServerAddress = "0.0.0.0:8080"
-	*configs.CdnServer = "https://llsifas.imsofucking.gay/static"
+	*configs.CdnServer = "https://llsifas.imsofucking.gay/static/"
 	*configs.CdnPartialFileCapability = "nothing"
 	*configs.AdminPassword = ""
 	*configs.TapBondGain = 20
@@ -77,6 +77,9 @@ func Load(p string) *RuntimeConfig {
 			f.Set(reflect.ValueOf(d).Elem().Field(i))
 		}
 		fmt.Println(reflect.TypeOf(c).Field(i).Name, ": ", f.Elem())
+	}
+	if *c.CdnServer == "https://llsifas.catfolk.party/static/" {
+		*c.CdnServer = "https://llsifas.imsofucking.gay/static/"
 	}
 	return &c
 }
